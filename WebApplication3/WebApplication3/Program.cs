@@ -12,13 +12,13 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .ReadFrom.Configuration(builder.Configuration)
     .WriteTo.Email(new EmailConnectionInfo
     {
-        FromEmail = "mhdmia24@gmail.com",
+        FromEmail = "mhdmi****a24@gmail.com",
         ToEmail = "fahimhasan314@gmail.com",
         MailServer = "smtp.gmail.com",
         NetworkCredentials = new NetworkCredential
         {
             UserName = "mhdmia24@gmail.com",
-            Password = "asuurqbkxonfaryc"
+            Password = "************"
         },
         EnableSsl = true,
         Port = 465,
