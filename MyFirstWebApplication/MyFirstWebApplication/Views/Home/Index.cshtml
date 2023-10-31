@@ -1,8 +1,52 @@
-﻿@{
+﻿@model Student
+@{
     ViewData["Title"] = "Home Page";
+    List<Student> student1 = ViewBag.Students;
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2> Hi this My First Project</h2>
+
+    @Html.TextBoxFor(x => x.Name)
+    <input asp-for="@Model.Name"/>
+
+    <table border="1px solid black" id="Table1"> 
+
+        <thead>
+            <tr>
+                <th>
+                    Student Id
+                </th>
+                <th>
+                    Student Name
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+                @foreach (Student student in student1)
+                {
+                <tr>
+                    <td>@student.Id</td>
+                    <td>@student.Name</td>
+                </tr>                  
+                }
+        </tbody>
+    </table>
+    <button onclick="deleteTable()">
+        DeleteTable
+    </button>
+
 </div>
+
+@section Scripts{
+    <script>
+        function deleteTable()
+        {
+            alert("Deleting Table");
+            var a = document.getElementById("Table1");
+            a.remove();
+        }
+    </script>
+}

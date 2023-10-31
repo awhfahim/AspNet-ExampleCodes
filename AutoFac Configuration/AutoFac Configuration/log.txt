@@ -1,0 +1,12 @@
+2023-10-22 16:05:01.122 +06:00 [FTL] Failed to start application.
+System.DivideByZeroException: Attempted to divide by zero.
+   at Program.<Main>$(String[] args) in D:\AspNet-ExampleCodes\AutoFac Configuration\AutoFac Configuration\Program.cs:line 112
+2023-10-22 16:06:10.252 +06:00 [FTL] Failed to start application.
+System.DivideByZeroException: Attempted to divide by zero.
+   at Program.<Main>$(String[] args) in D:\AspNet-ExampleCodes\AutoFac Configuration\AutoFac Configuration\Program.cs:line 112
+2023-10-22 16:06:47.694 +06:00 [FTL] Failed to start application.
+System.DivideByZeroException: Attempted to divide by zero.
+   at Program.<Main>$(String[] args) in D:\AspNet-ExampleCodes\AutoFac Configuration\AutoFac Configuration\Program.cs:line 112
+2023-10-22 16:08:53.399 +06:00 [FTL] Failed to start application.
+System.DivideByZeroException: Attempted to divide by zero.
+   at Program.<Main>$(String[] args) in D:\AspNet-ExampleCodes\AutoFac Configuration\AutoFac Configuration\Program.cs:line 112
