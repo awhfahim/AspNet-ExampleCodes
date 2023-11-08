@@ -1,0 +1,18 @@
+﻿.myDiv {
+  background-color: aquamarine;
+}
+.myDiv button {
+  background-color: burlywood;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  border-style: none;
+}
+.myDiv button:hover {
+  opacity: 0.6;
+  background-color: coral;
+  transition: opacity 0.41s;
+}
+.myDiv button:active {
+  opacity: 0.3;
+}

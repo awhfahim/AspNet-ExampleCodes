@@ -9,5 +9,10 @@ namespace BootstrapThemeIntegration.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public IActionResult TopNav()
+        {
+            return View();
+        }
     }
 }
