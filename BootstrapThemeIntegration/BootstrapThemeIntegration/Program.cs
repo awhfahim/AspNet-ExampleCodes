@@ -65,6 +65,7 @@ try
     app.MapRazorPages();
 
     app.Run();
+    Log.Information("Application Started");
 }
 catch(Exception ex)
 {
