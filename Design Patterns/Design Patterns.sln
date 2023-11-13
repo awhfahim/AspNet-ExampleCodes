@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton Design Pattern", "Singleton Design Pattern\Singleton Design Pattern.csproj", "{F060739C-CF8A-4D17-BDD1-CFC5D16EB43F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singleton Design Pattern", "Singleton Design Pattern\Singleton Design Pattern.csproj", "{F060739C-CF8A-4D17-BDD1-CFC5D16EB43F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype Desing Pattern", "Prototype Desing Pattern\Prototype Desing Pattern.csproj", "{0BC1EDED-CF6D-46D9-9120-780A3DCC7305}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototype Desing Pattern", "Prototype Desing Pattern\Prototype Desing Pattern.csproj", "{0BC1EDED-CF6D-46D9-9120-780A3DCC7305}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory Design Pattern", "Factory Design Pattern\Factory Design Pattern.csproj", "{292D1939-B528-483C-8E3F-1A696392896E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0BC1EDED-CF6D-46D9-9120-780A3DCC7305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BC1EDED-CF6D-46D9-9120-780A3DCC7305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BC1EDED-CF6D-46D9-9120-780A3DCC7305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{292D1939-B528-483C-8E3F-1A696392896E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292D1939-B528-483C-8E3F-1A696392896E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292D1939-B528-483C-8E3F-1A696392896E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292D1939-B528-483C-8E3F-1A696392896E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
