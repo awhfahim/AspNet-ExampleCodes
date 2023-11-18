@@ -1,2 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using Factory_Design_Pattern;
+
+BMWFactory factory = new BMWFactory();
+
+var NewCar = factory.Create("red", "2001x", 30);
