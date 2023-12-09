@@ -1,11 +1,14 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FirstDemo.Application;
+using FirstDemo.Domain.Entities;
+using FirstDemo.Infrastructure.Repositories;
 using FirstDemo.Web;
 using FirstDemo.Web.Data;
 using FirstDemo.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using Serilog;
 using Serilog.Events;
 
@@ -16,6 +19,14 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
     .Enrich.FromLogContext()
     .ReadFrom.Configuration(builder.Configuration));
+
+
+DbContext dbContext = null;
+var ress = new CourseRepository(dbContext);
+await ress.GetAsync(x => x.Fees > 8000);
+
+await ress.GetDynamicAsync();
+await ress.GetDynamic();
 
 try
 {

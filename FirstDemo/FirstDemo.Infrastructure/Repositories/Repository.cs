@@ -39,7 +39,10 @@ namespace FirstDemo.Application
         public virtual async Task RemoveAsync(TKey id)
         {
             var entityToDelete = _dbSet.Find(id);
-            await RemoveAsync(entityToDelete);
+            if(entityToDelete != null)
+            {
+                await RemoveAsync(entityToDelete);
+            }          
         }
 
         public virtual async Task RemoveAsync(TEntity entityToDelete)
@@ -307,10 +310,7 @@ namespace FirstDemo.Application
             var count = 0;
 
             if (filter != null)
-            {
-                query = query.Where(filter);
-                count = query.Count();
-            }
+                count = query.Where(filter).Count();
             else
                 count = query.Count();
 

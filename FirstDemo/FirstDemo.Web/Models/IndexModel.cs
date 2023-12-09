@@ -1,4 +1,6 @@
-﻿namespace FirstDemo.Web.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace FirstDemo.Web.Models
 {
     public class IndexModel
     {
