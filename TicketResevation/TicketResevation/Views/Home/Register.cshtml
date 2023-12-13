@@ -1,0 +1,1087 @@
+﻿@model Register;
+@{
+    ViewData["Title"] = "Register";
+    var media = new Media();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Verify Your NID        | Bangladesh Railway E-Ticketing Service
+    </title>
+    <meta name="keywords" content="Online train ticket booking, Buy train tickets, Train ticket booking, Railway ticket, bd railway, online train ticket, bangladesh railway ticket, bd train ticket, railway ticket booking, e ticket railway, e ticket train, bd railway ticket, bangladesh railway online ticket, bd train ticket" />
+    <meta name="description" content="Register on Bangladesh Railway E-Ticketing Service powered by Shohoz-Synesis-Vincen JV, in an easy way." />
+    <meta name="author" content="Bangladesh Railway" />
+    <meta content="follow, index, all" name="robots" />
+    <!--
+<link href="" rel="author" />
+<link href="" rel="author" />
+<link href="" rel="author" />
+-->
+<link href="https://eticket.railway.gov.bd/manifest.json" rel="manifest" />
+
+<!--Meta properties for Facebook Open Graph
+<meta property="fb:app_id" content=""/>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Bangladesh Railway" />
+Meta properties for Facebook Open Graph-->
+
+<meta property='og:title' content="Bangladesh Railway E-Ticketing Service"/>
+<meta property="og:image" content="https://eticket.railway.gov.bd/img/railway-og-image.png" />
+<meta property='og:description' content="Buy rail tickets online in three easy steps: search, select and pay. The tickets are issued by Bangladesh Railway’s CCSRTS."/>
+<meta property='og:url' content="https://eticket.railway.gov.bd/register/en"/>
+
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta name="google-site-verification" content="" /> -->
+<link rel="shortcut icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://eticket.railway.gov.bd/img/favicon.ico" type="image/x-icon">
+<!-- <meta name="msvalidate.01" content="" /> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script src="https://eticket.railway.gov.bd/js/bootstrap-modal.js" ></script>
+
+
+<!-- Trufis core CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+<!-- JQuery UI CSS -->
+<link rel="stylesheet" type="text/css" href="https://eticket.railway.gov.bd/css/jquery-ui.css?v=2" />
+
+
+<!-- datepicker for this template -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
+
+<!-- Custom styles for this template -->
+<link href="https://eticket.railway.gov.bd/css/shohoz_style.min.css?v=10.0.24" rel="stylesheet">
+<link href="https://eticket.railway.gov.bd/css/meanmenu.min.css" rel="stylesheet">
+<link href="https://eticket.railway.gov.bd/css/template.css?v=1" rel="stylesheet">
+<noscript>
+<meta http-equiv="refresh" id="mtaJSCheck" content="0;/enable-javascript.html" />
+</noscript>
+<link href="https://eticket.railway.gov.bd/font-awesome-4.3.0/css/font-awesome.css?v=2" rel="stylesheet">
+<!--CleverTap and Google - Start-->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register("https://eticket.railway.gov.bd/sw.js").then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script><!--CleverTap and Google - End-->
+
+        <link href="https://eticket.railway.gov.bd/css/loader.css" rel="stylesheet">
+    <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="https://eticket.railway.gov.bd/css/register-verify-nid.min.css?v=1.0.0">
+
+    
+    </head>
+<body class="body-en">
+
+    
+    <style>
+  .truck-nav:hover .truck-nav-icon-black {
+    display:none !important;
+  }
+
+  .truck-nav-icon-white {
+      display: none;
+  }
+  .main-navigation ul li a:hover, .main-navigation ul li a.current {
+      background: inherit !important;
+      color: #0F2444 !important;
+      border-bottom: 2px solid #0F2444;
+      border-radius: 0;
+  }
+  .main-navigation ul li a:focus, .main-navigation ul li a:active {
+    text-decoration: none;
+  }
+
+  .current .truck-nav-icon-white {
+      display:inline !important;
+  }
+
+  .truck-nav:hover .truck-nav-icon-white {
+      display:inline !important;
+  }
+  .main-navigation {
+      margin-right: 0;
+      float: right;
+      margin-top: 8px;
+  }
+  .site-logo .header-logo {
+      display: flex;
+      align-items: center;
+      color: #DA924E;
+      font-weight: 700;
+      font-size: 20px;
+      text-decoration: none;
+  }
+  .site-logo .header-logo .header-logo-img {
+      margin-right: 10px;
+  }
+  .site-logo .header-logo-text {
+      align-items: center;
+      color: #DA924E;
+      font-weight: 700;
+      font-size: 20px;
+  }
+  .main-header {
+      padding: 15px 0 15px;
+  }
+  .railway-logged-user {
+    width: 211px;
+    height: 42px;
+    border: 1px solid #eeeeee !important;
+    border-radius: 8px !important;
+    box-sizing: border-box;
+    color: #001529 !important;
+    font-weight: bold;
+    line-height: 42px;
+    display: flex !important;
+    justify-content: space-between;
+    padding: 0 20px !important;
+    align-items: center;
+  }
+  span.user-name-text {
+    flex-basis: 157px;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px !important;
+    white-space: nowrap;
+  }
+  .railway-logged-user:hover, .railway-logged-user.has-active-child {
+    border: 1px solid #C4C4C4 !important;
+    border-radius: 8px !important;
+  }
+  .user-dropdown-railway {
+    position: relative;
+  }
+  .user-dropdown-railway a i {
+    font-size: 12px;
+  }
+  .user-dropdown-railway a .fa-chevron-up {
+    display: none;
+  }
+  .user-dropdown-railway .user-related-links .single-url a {
+    border-bottom: 0 !important;
+    display: flex !important;
+    align-items: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #6E6E6E !important;
+    padding: 0 20px !important;
+    height: 22px;
+  }
+  .user-dropdown-railway .user-related-links .single-url a > i {
+    font-size: 16px;
+    text-align: center;
+    width: 16px;
+    flex: none;
+    margin-right: 15px;
+  }
+  .single-url a span {
+    flex: 1;
+  }
+  .user-dropdown-submenu {
+    position: absolute;
+    width: 274px;
+    height: auto;
+    text-align: left;
+    top: 100%;
+    right: 0;
+    display: none;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    z-index: 100;
+    padding: 20px 0 0;
+  }
+  p.drop-title-user {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    color: #001529;
+    margin: 0 0 24px;
+    padding: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dropdown-user-info {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: #6E6E6E;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .dropdown-user-info span {
+    word-break: break-word;
+    flex: 1;
+  }
+  .dropdown-user-info i {
+    width: 16px;
+    text-align: center;
+    margin-right: 15px;
+    flex: none;
+  }
+  .dropdown-user-info i.fa-envelope {
+    font-size: 16px;
+  }
+  .dropdown-user-info i.fa-mobile {
+    font-size: 28px;
+  }
+  .user-dropdown-divider {
+    height: 1px;
+    background: #CCC;
+    margin-bottom: 20px;
+  }
+  .user-dropdown-submenu .user-related-links .single-url {
+    display: block;
+    margin-bottom: 18px;
+    height: 24px;
+  }
+  .user-dropdown-submenu .user-related-links .single-url > a:hover, .user-dropdown-submenu .user-related-links .single-url > a.current {
+    border-bottom-color: transparent !important;
+    color: #006747 !important;
+  }
+  .warning-content-wrapper {
+    max-width: 1150px;
+    min-height: 70px;
+    margin: 16px auto;
+    display: flex;
+    padding: 0 15px;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid rgba(133, 165, 205, 0.2);
+    box-shadow: 0px 2px 8px rgb(108 152 166 / 10%);
+    border-radius: 8px;
+  }
+  .verify-nid-btn {
+    flex: none;
+    margin-left: 16px;
+  }
+  .verify-nid-link:hover, .verify-nid-link:focus {
+    color: #FFFFFF;
+  }
+  .warning-icon-holder {
+    width: 70px;
+    margin-right: 5px;
+    flex: none;
+  }
+  .warning-text-holder {
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    padding: 10px 0;
+  }
+  .warning-text-holder p.bn-text {
+    margin-top: 10px;
+    font-family: 'SolaimanLipi';
+    font-size: 16px;
+  }
+  .warning-text-holder p {
+    margin: 0;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FF1A04;
+  }
+  .identity-verification-unavailable .warning-text-holder p {
+    font-size: 16px;
+  }
+  .eid-ticket-sale-warning .warning-text-holder p {
+    font-weight: normal;
+  }
+  .verify-nid-link {
+    background: #006747;
+    border-radius: 4px;
+    width: 125px;
+    height: 46px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+  }
+  .m-0{
+    margin: 0;
+  }
+  @media (max-width: 991px){
+    .website-top-warning-message {
+      padding-bottom: 16px;
+    }
+    .user-dropdown-submenu {
+      width: 100%;
+      padding: 20px 0;
+      height: calc(100vh - 388px);
+      overflow: auto;
+    }
+    .dropdown-user-info,
+    .user-dropdown-railway .user-related-links .single-url a,
+    p.drop-title-user{
+      padding: 0 5% !important;
+    }
+    .mean-container .mean-nav ul li.mean-last .railway-logged-user{
+      width: 100%;
+      color: #FFF !important;
+      padding: 0 5% !important;
+      border-left: 0 !important;
+      border-bottom: 0 !important;
+      border-radius: 0 !important;
+      border-top: 1px solid rgba(255,255,255,.5) !important;
+      background-color: #089d49 !important;
+    }
+    .user-dropdown-railway a .fa-chevron-up, .user-dropdown-railway a .fa-chevron-down {
+      position: absolute;
+      right: 20px;
+    }
+    .user-dropdown-railway a:hover .fa-chevron-down{
+      display: none;
+    }
+  }
+  @media  screen and (max-width: 767px){
+    .verify-nid-link {
+      width: 100%;
+      height: 30px;
+      font-size: 12px;
+    }
+    .warning-content-wrapper {
+      display: block;
+      padding: 5px;
+      top: 80px;
+    }
+    .verify-nid-btn {
+      margin: 10px 0 0;
+    }
+    .warning-icon-holder {
+      width: 40px;
+      margin-right: 5px;
+      float: left;
+    }
+    .warning-text-holder p {
+      font-size: 11px;
+    }
+    .warning-content-wrapper {
+      margin-bottom: 0;
+      align-items: start;
+    }
+    .truck-nav-icon-white {
+      display: inline;
+    }
+    .truck-nav-icon-black {
+      display: none;
+    }
+    .railway-logged-user {
+      color: #FFF;
+      padding: 10px 20px;
+    }
+    header.new-header .site-wrapper {
+      padding: 0 5px 0 0;
+    }
+  }
+</style>
+<link rel="stylesheet" href="https://eticket.railway.gov.bd/v2/assets/styles/learn.css?v=1.4.10" />
+
+<header class="new-header">
+  <input type="hidden" id="www-search-id" name="www-search-id" value="">
+
+  <!-- Header Top Part End Here -->
+  <div class="main-header">
+      <!-- Header Start Here -->
+      <div class="container-wrapper">
+        <div class="site-wrapper clearfix">
+          <div class="site-logo">
+              <a title="Bangladesh Railway" href="https://eticket.railway.gov.bd/en" class="header-logo">
+                  <div class="header-logo-img">
+                      <img src="https://eticket.railway.gov.bd/v2/assets/img/home/bangladesh-railway.png" width="60" alt="Bangladesh Railway Logo">
+                  </div>
+                  <div class="header-logo-text">
+                      Bangladesh <br>Railway
+                  </div>
+              </a>
+          </div>
+          <nav class="main-navigation" style="display: block;">
+              <ul>
+                  <li><a title="Railway Home" href="https://eticket.railway.gov.bd/en" class="">Home</a></li>
+                                      <li><a title="Login" href="https://eticket.railway.gov.bd/login/en" class="">Login</a></li>
+                    <li><a title="Register" href="https://eticket.railway.gov.bd/register/en" class="current">Register</a></li>
+                                                      <li><a title="Train Information" href="https://eticket.railway.gov.bd/train-information/en" class="">Train Information</a></li>
+                  <li><a title="Contact Us" href="https://eticket.railway.gov.bd/contact-us/en" class="">Contact Us</a></li>
+
+                  
+                                </ul>
+          </nav>
+
+                    <!-- Header End Here -->
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu"></div>
+</header>
+
+
+
+
+
+
+    <!-- main_wrapper starts here -->
+    <div id="main_wrapper">
+            <main class="railway-register-page">
+        <div class="register-page-wrapper">
+            <div class="rw-reg-header">
+                <div class="rw-reg-header-title">
+                    <h2>Registration</h2>
+                </div>
+                <div class="rw-go-back-home-btn-wrp">
+                    <!-- <a href="https://eticket.railway.gov.bd/en" class="go-back-home-btn">< Go Back To Home</a> -->
+                </div>
+            </div>
+
+            <div class="page-illustration">
+                <img src="https://eticket.railway.gov.bd/v2/assets/img/auth/verify-nid-illustration.svg" id="verify-nid-illustration" alt="Verify NID" class="img-responsive" width="180" height="136">
+                <h2>Please Verify Your NID</h2>
+                <p>Enter the information below to verify and register your NID with Bangladesh Railway Ticketing Service</p>
+                <span>If your NID is verified through SMS, please use the details used during the SMS verification.</span>
+            </div>
+
+            <div class="rw-reg-form-wrapper">
+                <form asp-action="Register" asp-controller="Home" method="post" asp-antiforgery="true">
+                    <div class="rw-reg-form-row">
+                        <div class="rw-reg-form-col">
+                            <div class="rw-reg-form-control-wrp">
+                                <label asp-for="MobileNumber">Mobile Number</label>
+					            <input type="number" class="form-control" placeholder="Enter Mobile Number" asp-for="MobileNumber">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rw-reg-form-row">
+                        <div class="rw-reg-form-col">
+                            <div class="rw-reg-form-control-wrp">
+                                <label asp-for="NID">Nid</label>
+					            <input type="number" class="form-control" placeholder="Enter NID Number" asp-for="NID">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rw-reg-form-row">
+                        <div class="rw-reg-form-col">
+                            <div class="rw-reg-form-control-wrp">
+                                <label asp-for="DateOfBirth">Date of Birth</label>
+					            <input type="datetime" class="form-control" placeholder="Enter Date of Birth" asp-for="DateOfBirth">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="rw-reg-form-row birth-certificate-passport">
+                        <div class="rw-reg-form-col">
+                            <p>If you are under 18 years old or a foreign passport holder, you can register with your birth certificate or passport by clicking the submit data button.</p>
+                            
+                            <button type="submit" class="btn btn-primary">Submit Data</button>
+                        </div>
+                    </div>
+
+                    <div class="rw-reg-form-row rw-reg-block">
+                        <div class="rw-reg-form-col">
+                            <a href="https://eticket.railway.gov.bd/login/en" class="already-registered-btn">Already Registered?</a>
+                        </div>
+                    </div>
+                </form>
+
+                <p>@ViewBag.Message</p>
+    </main>
+    </div>
+    <!-- main_wrapper ends here -->
+
+    
+    <style>
+    .footer {
+        background: #F6F9FF;
+        padding: 0 50px;
+        height: 119px;
+        width: 100%;
+        overflow: hidden;
+        visibility: hidden;
+    }
+    .railway-footer-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+    .footer .railway-logo{
+      display: flex;
+    }
+
+    .footer .railway-logo .railway-logo-img{
+      margin-right: 10px;
+    }
+    .footer .railway-logo .railway-logo-img img {
+      width: 55px;
+    }
+
+    .footer .railway-logo-text .railway-text{
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 29px;
+      text-align: center;
+      color: #DA924E;
+    }
+
+    .footer .railway-logo-text .bangla-text{
+      font-size: 13px;
+      line-height: 15px;
+      text-align: center;
+      color: #006747;
+      font-weight: 400;
+      padding-top: 8px;
+    }
+
+    .footer .powered-by{
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 23px;
+      color: #000000;
+    }
+    .footer .powered-by img{
+      height: 54px;
+    }
+    .footer p{
+      margin: 0;
+      padding: 0;
+    }
+    .powered-company {
+        font-size: 22px;
+        font-weight: bold;
+        color: #006747;
+    }
+    .btn-back-nagad-app {
+      display: block;
+      height: 45px;
+      line-height: 44px;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 0px;
+      margin-top: 2%;
+      color: white!important;
+      text-align: center;
+      background-color: #f6921e;
+      border-color: #f6921e;
+      padding: 0;
+      text-decoration: none;
+      z-index: 100000;
+    }
+    .btn-back-nagad-app:active, .btn-back-nagad-app:focus, .btn-back-nagad-app:hover, .btn-back-nagad-app:visited {
+      text-decoration: none !important;
+    }
+    @media (max-width: 767px) {
+      .mobile_view{
+          margin: 0px 0px 4px -10px;
+      }
+      .footer {
+        height: auto;
+        padding: 50px 16px;
+              }
+      .railway-footer-wrapper {
+        flex-direction: column;
+      }
+      .footer .railway-logo {
+        margin-bottom: 30px;
+      }
+      .footer .railway-logo-text .bangla-text,
+      .footer .railway-logo-text .railway-text {
+        text-align: left;
+      }
+      .footer .powered-by {
+        margin-bottom: 30px;
+      }
+    }
+</style>
+<!-- Footer Start Here -->
+<footer class="footer">
+  <div class="railway-footer-wrapper">
+    <div class="powered-by">
+      <img src="https://eticket.railway.gov.bd/v2/assets/img/home/shohoz-synesis-vincen-jv.webp" alt="Shohoz Synesis Vincen JV">
+    </div>
+    <div class="railway-footer-urls" style="padding: 0px 0 15px;">
+      <a href="https://eticket.railway.gov.bd/terms-and-conditions/en">Terms and Conditions</a> | <a href="https://eticket.railway.gov.bd/privacy-policy/en">Privacy Policy</a>
+    </div>
+    <div class="railway-logo">
+      <div class="railway-logo-img">
+        <img src="https://eticket.railway.gov.bd/v2/assets/img/home/bangladesh-railway.png" width="60" alt="Bangladesh Railway Logo">
+      </div>
+      <div class="railway-logo-text">
+        <p class="railway-text">Bangladesh Railway</p>
+        <p class="bangla-text">নিরাপদ . আরামদায়ক . সাশ্রয়ী</p>
+      </div>
+    </div>
+  </div>
+
+  
+  </footer>
+<!-- Footer End Here -->
+
+
+<script>
+  $(function () {
+    setTimeout(function(){
+      $('[autocomplete=off]').each(function(){
+        if(typeof $(this).attr('value') === 'undefined'){
+          $(this).val('');
+        }
+      });
+    }, 600);
+  });
+</script>
+
+    <!-- ===============  JAVASCRIPT STARTS ================ -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+
+<!-- JQuery UI CSS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script src="https://eticket.railway.gov.bd/js/modernizr.custom.2.6.2.min.js"></script>
+<script src="https://eticket.railway.gov.bd/js/jquery.meanmenu.min.js"></script>
+<script src="https://eticket.railway.gov.bd/js/jquery.simpleselect.min.js"></script>
+
+<script>
+
+	$(function () {
+		$('nav.main-navigation').meanmenu({
+		  meanScreenWidth: "992",
+		  meanMenuContainer: '.mobile-menu'
+		});
+
+		$(".lang-select select").simpleselect({
+			fadingDuration: 50,
+			containerMargin: 10,
+			displayContainerInside: "document"
+		});
+
+		$(".lang-chooser").on('change',function () {
+			var selectedLangCode = $(this).val();
+			// Checking language code is in the last segment of the url
+			var url = window.location.href;
+			var splittedUrl = url.split('?');
+			var langKeyInSegmentedUrl = splittedUrl[0].substring(splittedUrl[0].lastIndexOf('/') + 1);
+			if ($.inArray(langKeyInSegmentedUrl, ["en", "bn"]) > -1) {
+				url = url.replace("/" + langKeyInSegmentedUrl, "/" + selectedLangCode);
+				if(url.indexOf("lang=") > -1){
+					url = url.replace(/&lang=(en|bn)$/g, '');
+				}
+				return window.location.replace(url);
+			}
+
+			// Check if lang exists in query params
+			if(typeof splittedUrl[1] !== 'undefined'){
+				if(splittedUrl[1].indexOf("lang=") > -1){
+					return window.location.replace(url.replace(/lang=(en|bn)$/g, 'lang='+selectedLangCode));
+				}else{
+					return window.location.replace(url + '&lang='+selectedLangCode);
+				}
+			}else{
+				return window.location.replace(window.location.href + '?lang='+selectedLangCode);
+			}
+		});
+	})
+</script>
+<style type="text/css">
+	#couponPopup{
+		z-index: 99999999;
+	}
+	#couponPopup .modal-dialog{
+		z-index:99999;
+		margin-top: 10%;
+		width:600px;
+		max-width: 100%;
+	}
+	#couponPopup .modal-content{
+		padding: 12px;
+		border-radius:10px;
+	}
+	#couponPopup .modal-content button{
+        margin: -25px -25px 0 0;
+	    background: #f73131;
+	    border-radius: 25px;
+	    font-weight: bold;
+	    color: #fff;
+	}
+	#coupon-popup-home{
+		background: url("https://eticket.railway.gov.bd/img/coupon-popup/coupon-popup-home.png") no-repeat center #fff;
+		background-size: 100% auto;
+    	min-height: 333px;
+	}
+	#coupon-popup-search{
+		background: url("https://eticket.railway.gov.bd/img/coupon-popup/coupon-popup-search.png") no-repeat center #fff;
+		background-size: 100% auto;
+    	min-height: 333px;
+	}
+	#coupon-popup-trip{
+		background: url("https://eticket.railway.gov.bd/img/coupon-popup/coupon-popup-trip.png") no-repeat center #fff;
+		background-size: 100% auto;
+    	min-height: 333px;
+    	background-size:cover;
+	}
+	.coupon-popup-content h4{
+		margin: 207px 10px 0 0;
+	}
+	.coupon-popup-content h4 span{
+        padding: 10px 3px;
+	    border-radius: 5px;
+	    color: #222;
+	    font-size: 16px;
+	    font-weight: bold;
+	}
+	.coupon-popup-content h4 span.coupon-code{
+        padding: 3px 15px;
+	    border-radius: 5px;
+	    color: #c70000;
+	    font-weight: bold;
+	    font-size: 16px;
+	    margin-right: 120px;
+	    border: 2px dashed #f73131;
+	    font-family: sans-serif;
+	}
+
+	@media (max-width: 600px) {
+    	#coupon-popup-home, #coupon-popup-search, #coupon-popup-trip {
+	        background-size: 500px auto; /* Force the image to its minimum width */
+	    }
+	    .coupon-popup-content h4{
+			margin: 192px 10px 0 0;
+		}
+	    .coupon-popup-content h4 span.coupon-code{
+		    margin-right: 80px;
+		}
+	}
+
+	@media (max-width: 500px) {
+    	#coupon-popup-home, #coupon-popup-search, #coupon-popup-trip {
+	        background-size: 420px auto; /* Force the image to its minimum width */
+	    }
+
+	    .coupon-popup-content h4{
+			margin: 180px 10px 0 0;
+		}
+
+		.coupon-popup-content h4 span{
+		    font-size: 12px;
+		}
+		.coupon-popup-content h4 span.coupon-code{
+			padding: 2px 11px;
+		    font-size: 12px;
+		    margin-right: 60px;
+		}
+	}
+
+</style>
+
+<script>
+	/* Modal call */
+	function modalCall(heading, text, body)
+	{
+	var html = '<div style="" class="modal fade bs-example-modal-sm" id="modalCall" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">'
+			+ '<div class="modal-dialog modal-sm">'
+			+ '<div class="modal-content" style="padding: 12px"><h3>' + heading + '</h3>'
+			+ '<h4 style="">' + text + '</h4>'
+			+ '<div class="clearfix">&nbsp;</div>'
+			+ '<div class="">' + body + '</div>'
+			+ '<div class="col-xs-12 text-right">'
+			+ '<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>'
+			+ '</div>'
+			+ '<br><br>'
+			+ '</div>'
+			+ '</div>'
+			+ '</div>';
+			$('body').prepend(html);
+			$('#modalCall').modal({'backdrop': 'static'});
+			$('#modalCall').addClass('animated bounce');
+			$('#modalCall').on('hidden.bs.modal', function(e) {
+	$('#modalCall').remove();
+	});
+	}
+
+	function couponPopup(flash_coupon_page)
+	{
+		return;
+        $.ajax({
+            type: "POST",
+            url: "/booking/bus/flash-coupon/",
+            data: { flash_coupon_page: flash_coupon_page },
+            complete: function(xhr, textStatus) {
+                //  popAlert(xhr.status);
+            }
+        }).done(function(data) {
+            //console.log(data);
+            //alert(data.flash_coupon)
+            if(data.coupon_code){
+            	$('.modal').modal('hide');
+            	var html = '<div class="modal fade bs-example-modal-sm" id="couponPopup" role="dialog" >'
+							+ '<div class="modal-dialog modal-sm">'
+							+ '<div id="coupon-popup-'+data.flash_coupon_page+'" class="modal-content coupon-popup-content">'
+							//+ '<div class="row text-right">'
+							+ '<button type="button" class="btn btn-sm pull-right" data-dismiss="modal">X</button>'
+							//+ '</div>'
+							+ '<h3> </h3>'
+							+ '<h4 class="round hollow pull-right"><span>Coupon: </span><span class="coupon-code">' + data.coupon_code + '</span></h4>'
+							+ '<div class="clearfix">&nbsp;</div>'
+							//+ '<div class="">' + body + '</div>'
+							+ '<br><br>'
+							+ '</div>'
+							+ '</div>'
+							+ '</div>';
+							$('body').prepend(html);
+							$('#couponPopup').modal({'backdrop': 'static'});
+							//$('#couponPopup').modal();
+							$('#couponPopup').addClass('animated bounce');
+							$('#couponPopup').on('hidden.bs.modal', function(e) {
+								$('#couponPopup').remove();
+							});
+            }
+        });
+	}
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4CW6X15DG"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Y4CW6X15DG');
+        </script>
+     <script>
+    if(typeof clevertap !== 'undefined'){
+        clevertap.notificationCallback = function(msg){
+            //raise the notification viewed and clicked events in the callback
+            clevertap.raiseNotificationViewed();
+            console.log(JSON.stringify(msg));//your custom rendering implementation here
+            console.log(msg.msgContent.html);
+            var htmldata = msg.msgContent.html;
+            var modal = document.getElementById("mod-body");
+            modal.innerHTML = htmldata;
+            $("#cleverTapModal").modal();
+        };
+
+        clevertap.notifications.push({
+            "titleText":'Would you like to receive Push Notifications?',
+            "bodyText":'We promise to only send you relevant content and give you updates on your transactions',
+            "okButtonText":'Sign me up!',
+            "rejectButtonText":'No thanks',
+            "askAgainTimeInSeconds":600,
+            "serviceWorkerPath": "https://eticket.railway.gov.bd/js/sw.js",
+            "okButtonColor":'#079d49'
+        });
+    }
+</script>	
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://eticket.railway.gov.bd/js/identification-date.js?v=1.0.4"></script>
+    <script>
+        $(function() {
+            $("#mobile_number").focus();
+
+            // NID Verification form submission
+            $("#nid-verification-form").submit(function(e){
+                e.preventDefault();
+
+                // Clear for error messages
+                $(".railway-form-error").remove();
+                $(".rw-reg-form-control-wrp").removeClass('has-error');
+                $("#verify-nid-illustration").attr('src', "https://eticket.railway.gov.bd/v2/assets/img/auth/verify-nid-illustration.svg");
+
+                if(window.navigator.onLine === false){
+                    $(".page-illustration").after('<div class="railway-form-error" style="margin-bottom: 20px; height: auto;">Please check your internet connection.</div>');
+                    return false;
+                }
+
+                const recaptcha = $(this).find('#recaptcha');
+                $(this).find("button[type='submit']").prop('disabled', true);
+                recaptcha.val($('#g-recaptcha-response').val());
+
+                $.ajax({
+                    type: 'post',
+                    data: $(this).serialize(),
+                    url: $(this).attr('action'),
+                    dataType: 'json',
+                    success: function(response){
+                        if(response.data.validate === true){
+                            $(".railway-form-error").remove();
+                            var nidInfo = {
+                                'name': response.data.name,
+                                'nid': response.data.given_nid,
+                                'mobile': $("#mobile_number").val(),
+                                'dob': $("#dob").val(),
+                            }
+                            localStorage.setItem('nidVerificationData', JSON.stringify(nidInfo));
+                            window.location.href = "https://eticket.railway.gov.bd/register/user-info/nid/en";
+                        }else{
+                            $("#verify-nid-illustration").attr('src', "https://eticket.railway.gov.bd/v2/assets/img/auth/nid-not-verified.svg");
+                            $(".page-illustration").append('<div class="railway-form-error" style="margin-bottom: 20px; height: auto;">Unknown error occurred.</div>');
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        $("#verify-nid-illustration").attr('src', "https://eticket.railway.gov.bd/v2/assets/img/auth/nid-not-verified.svg");
+                        var statusCode = jqXHR.status;
+                        var errorMessages = jqXHR.responseJSON.error;
+                        if('messages' in errorMessages && statusCode === 422){
+                            if('errors' in errorMessages.messages){
+                                var formErrors = errorMessages.messages.errors;
+                                Object.keys(formErrors).forEach(function(key,index) {
+                                    var currentElement = $("#" + key).closest(".rw-reg-form-control-wrp");
+                                    currentElement.append('<div class="railway-form-error">' + formErrors[key][0] + '</div>').addClass('has-error');
+                                });
+                            }else if(typeof(errorMessages.messages) === 'object'){
+                                for(var i = 0; i < errorMessages.messages.length; i++){
+                                    $(".page-illustration").append('<div class="railway-form-error" style="margin-bottom: 20px; height: auto;">'+errorMessages.messages[i]+'</div>');
+                                }
+                            }
+                            return;
+                        }
+                        $(".page-illustration").append('<div class="railway-form-error" style="margin-bottom: 20px; height: auto;">Server error occurred.</div>');
+                    },
+                    complete: function(response){
+                        recaptcha.val('');
+                        grecaptcha.reset();
+                        $("#nid-verification-form").find("button[type='submit']").prop('disabled', false);
+                    }
+                });
+            });
+
+        });
+    </script>
+
+    <!-- Common script -->
+    <script type="text/javascript">
+
+        // Setting initial height of main_wrapper
+        $("document").ready(function(){
+            function setMainWrapperHeight(){
+                var browserHeight = $(window).height();
+                var headerHeight = $("header.new-header").height();
+                var mainWrapperHeight = $("#main_wrapper").height();
+                var footerHeight = $("footer.footer").height();
+
+                var documentHeight = headerHeight + mainWrapperHeight + footerHeight;
+
+                if(documentHeight < browserHeight){
+                    var mainWrapperHeight = browserHeight - (headerHeight + footerHeight + 25);
+                    $("#main_wrapper").css('min-height', mainWrapperHeight);
+                }
+            }
+
+            // Initial
+            setMainWrapperHeight();
+            $("footer.footer").css('visibility', 'visible');
+
+            // On resize
+            $(window).resize(function(){
+                setMainWrapperHeight();
+            });
+
+            // Logout request
+            $("a[title='Logout']").on('click', function(e) {
+                e.preventDefault();
+                sessionStorage.removeItem('skip_verification_progress_popup');
+                $('form#logout-form').submit();
+            });
+
+            // Start of CleverTap Integration
+            // Event: [B] Insurance Claimed, Bus Reservation
+            // $(".fire-event").click(function(){
+            //     var text = $(this).text();
+            //     if (text == "Insurance Claim") text = "[B] Insurance Claimed";
+            //     clevertap.event.push(text);
+            // });
+
+            $("a[data-modal-target='terms'], button[data-modal-target='terms']").on('click', function(e){
+                e.preventDefault();
+                $("#terms-modal").show();
+            });
+
+            $("button[data-modal-target='railwayact']").on('click', function(e){
+                e.preventDefault();
+                $("#railway-act-modal").show();
+            });
+
+            $("a[data-modal-target='privacy'], button[data-modal-target='privacy']").on('click', function(e){
+                e.preventDefault();
+                $("#privacy-modal").show();
+            });
+
+            $("a[data-modal-target='refund'], button[data-modal-target='refund']").on('click', function(e){
+                e.preventDefault();
+                $("#refund-modal").show();
+            });
+
+            // User dropdown
+            var userDropdownOpened = false;
+            $(document).on('click', function (e) {
+                if ($(e.target).closest(".user-dropdown-railway").length === 0) {
+                    $(".user-dropdown-submenu").slideUp();
+                    $(".user-dropdown-railway a .fa-chevron-up").hide();
+                    $(".user-dropdown-railway a .fa-chevron-down").show();
+                    userDropdownOpened = false;
+                }else if($(e.target).closest(".railway-logged-user").length === 1){
+                    if(userDropdownOpened){
+                        $(".user-dropdown-submenu").slideUp();
+                        $(".user-dropdown-railway a .fa-chevron-up").hide();
+                        $(".user-dropdown-railway a .fa-chevron-down").show();
+                        userDropdownOpened = false;
+                    }else{
+                        $(".user-dropdown-submenu").slideDown();
+                        $(".user-dropdown-railway a .fa-chevron-up").show();
+                        $(".user-dropdown-railway a .fa-chevron-down").hide();
+                        userDropdownOpened = true;
+                    }
+                    return;
+                }
+            });
+        });
+    </script>
+    <!-- ===============  JAVASCRIPT ENDS ================ -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMV5Z7B"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+</html>
+
+
