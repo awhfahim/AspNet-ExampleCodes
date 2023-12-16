@@ -24,5 +24,13 @@ namespace FirstDemo1.Application.Features.Training
             _unitOfWork.CourseRepository.Add(course);
             _unitOfWork.Save();
         }
+
+        public async Task<(IList<Course> records, int total, int totalDisplay)>
+            GetPagedCoursesAsync(int pageIndex, int pageSize,
+                string searchText, string sortBy)
+        {
+            return await _unitOfWork.CourseRepository.GetTableDataAsync(searchText, sortBy,
+                pageIndex, pageSize);
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace FirstDemo3.Infrastructure
 
 			builder.RegisterType<RoundTripRepository>().As<IRoundTripRepository>()
 				.InstancePerLifetimeScope();
+
 		}
 	}
 }

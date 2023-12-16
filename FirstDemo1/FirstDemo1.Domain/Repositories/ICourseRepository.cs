@@ -10,6 +10,8 @@ namespace FirstDemo1.Domain.Repositories
 {
     public interface ICourseRepository : IRepositoryBase<Course, Guid>
     {
-
+        Task<(IList<Course> records, int total, int totalDisplay)>
+            GetTableDataAsync(string searchText, string orderBy,
+                int pageIndex, int pageSize);
     }
 }

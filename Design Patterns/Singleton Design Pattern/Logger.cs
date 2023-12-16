@@ -9,7 +9,6 @@ namespace Singleton_Design_Pattern
     public class Logger
     {
         private static Logger _logger;
-
         private Logger() { }
         
         private static List<string> logs = new List<string>();

@@ -8,6 +8,7 @@ namespace FirstDemo1.Web
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CourseCreateModel>().AsSelf();
+            builder.RegisterType<CourseListModel>().AsSelf();
         }
     }
 }

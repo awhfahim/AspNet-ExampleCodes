@@ -15,10 +15,12 @@ namespace FirstDemo.Infrastructure
 	{
 		public ICourseRepository CourseRepository { get; private set; }
 
-		public ApplicationUnitOfWork(ApplicationDbContext dbContext) : base(dbContext)
+		public ApplicationUnitOfWork(IApplicationDbContext dbContext, ICourseRepository courseRepository)
+			: base((DbContext)dbContext)
 		{
-			CourseRepository = new CourseRepository(dbContext);
-		}
+			CourseRepository = courseRepository;
+
+        }
 
     }
 }
