@@ -7,6 +7,8 @@ namespace Practice1.Web
     {
         protected override void Load(ContainerBuilder builder)
         {
+
+            throw new NotImplementedException();
             builder.RegisterType<AddDoctorModel>().AsSelf()
                 .InstancePerLifetimeScope();
 
