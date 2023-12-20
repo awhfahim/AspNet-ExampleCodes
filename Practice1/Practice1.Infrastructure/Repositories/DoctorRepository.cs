@@ -15,6 +15,12 @@ namespace Practice1.Infrastructure.Repositories
         {
         }
 
+        public async Task<(IList<Doctor> records, int total, int totalDisplay)> GetTableDataAsync(string searchText, string orderBy, int pageIndex, int pageSize)
+        {
+             return await GetDynamicAsync(x => x.Name!.Contains(searchText),
+                 orderBy, null, pageIndex, pageSize, true);
+        }
+
         public async Task<bool> IsDuplicateAsync(string name, Guid? id = null)
         {
             if(id.HasValue)

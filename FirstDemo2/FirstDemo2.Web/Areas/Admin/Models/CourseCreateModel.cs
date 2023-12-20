@@ -1,6 +1,9 @@
 ﻿using Autofac;
+using Azure.Core;
+using FirstDemo.Infrastructure;
 using FirstDemo2.Domain.Entities;
 using FirstDemo2.Domain.Features.Training;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FirstDemo2.Web.Areas.Admin.Models
 {
@@ -30,5 +33,6 @@ namespace FirstDemo2.Web.Areas.Admin.Models
 			var course = new Course() {Title = Title, Description = Description, Fees = Fees};
 			_courseManagementService.CreateCourse(course);
 		}
-	}
+
+    }
 }

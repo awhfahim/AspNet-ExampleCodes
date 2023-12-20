@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Microsoft.AspNetCore.Mvc;
+using Practice1.Infrastructure;
 using Practice1.Web.Areas.Hospital.Models;
 
 namespace Practice1.Web.Areas.Hospital.Controllers
@@ -30,6 +31,20 @@ namespace Practice1.Web.Areas.Hospital.Controllers
                 return RedirectToAction("AddDoctor");
             }
             return View(model);
+        }
+
+        public IActionResult DoctorLists()
+        {
+            return View();
+        }
+
+        public async Task<JsonResult> GetDoctors()
+        {
+            var dataTablesModel = new DataTablesAjaxRequestUtility(Request);
+            var model = _scope.Resolve<DoctorListModel>();
+
+            var data = await model.GetPagedDoctorsAsync(dataTablesModel);
+            return Json(data);
         }
     }
 }

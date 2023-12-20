@@ -12,6 +12,9 @@ namespace Practice1.Web
 
             builder.RegisterType<AddPatientModel>().AsSelf()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<DoctorListModel>().AsSelf()
+                .InstancePerLifetimeScope();
         }
     }
 }

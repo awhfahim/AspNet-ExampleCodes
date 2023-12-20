@@ -18,7 +18,7 @@ namespace FirstDemo3.Application.Features.Ticket_Booking
 
 		public void ShowFlightDetails(string From, string To, DateTime dateTime)
 		{
-			_unitOfWork.
+			//_unitOfWork.
 		}
 	}
 }
