@@ -35,6 +35,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    <partial name="_ModalPartial" />
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -62,14 +63,56 @@
     <script>
         $(function () {
             $("#courses").DataTable({
-                "processing": true,
-                "serverSide": true,
-                "ajax": {
-                    "url": "/Admin/Course/GetCourses",
+                processing: true,
+                serverSide: true,
+                ajax: {
+                    url: "/Admin/Course/GetCourses",
+                    data: function (d) {
+                        d.SearchItem = {
+                            Title: $("#SearchItem_Title").val(),
+                            CourseFeesFrom: $("#SearchItem_CourseFeesFrom").val(),
+                            CourseFeesTo: $("#SearchItem_CourseFeesTo").val(),
+                        }
+                    },
                 },
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                columnDefs: [
+                    {
+                        orderable: false,
+                        targets: 3,
+                        render: function (data, type, row) {
+                            return `<button type="submit" class="btn btn-info btn-sm" onclick="window.location.href='/admin/course/update/${data}'" value='${data}'>
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Edit
+                                            </button>
+                                            <button type="submit" class="btn btn-danger btn-sm show-bs-modal" data-id='${data}' value='${data}'>
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Delete
+                                            </button>`;
+                        }
+                    }
+                ],
+                responsive: true, "lengthChange": false, "autoWidth": false,
+                buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#courses_wrapper .col-md-6:eq(0)');
+
+            $('#courses').on('click', '.show-bs-modal', function (event) {
+                let id = $(this).data("id");
+                let modal = $("#modal-default");
+                modal.find('.modal-body p').text('Are you sure you want to delete this record?');
+                $("#deleteId").val(id);
+                $("#deleteForm").attr("action", "/admin/course/delete");
+                modal.modal('show');
+            });
+
+            $("#deleteButton").click(function () {
+                $("#deleteForm").submit();
+            });
+
+            $("#searchButton").click(function () {
+                $('#courses').DataTable().ajax.reload(null, false);
+            });
         });
     </script>
 }

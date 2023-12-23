@@ -32,5 +32,11 @@ namespace FirstDemo1.Application.Features.Training
             return await _unitOfWork.CourseRepository.GetTableDataAsync(searchText, sortBy,
                 pageIndex, pageSize);
         }
+
+        public async Task DeleteCourseAsync(Guid id)
+        {
+            await _unitOfWork.CourseRepository.RemoveAsync(id);
+            await _unitOfWork.SaveAsync();
+        }
     }
 }

@@ -41,5 +41,10 @@ namespace FirstDemo1.Web.Areas.Admin.Models
                     ).ToArray()
             };
         }
+
+        internal async Task DeleteCourseAsync(Guid id)
+        {
+            await _courseService.DeleteCourseAsync(id);
+        }
     }
 }

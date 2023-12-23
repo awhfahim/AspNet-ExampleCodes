@@ -47,5 +47,27 @@ namespace FirstDemo1.Web.Areas.Admin.Controllers
             var data = await model.GetPagedCoursesAsync(dataTablesModel);
             return Json(data);
         }
-    }
+
+		[HttpPost, ValidateAntiForgeryToken]
+		public async Task<IActionResult> Delete(Guid id)
+		{
+			var model = _scope.Resolve<CourseListModel>();
+
+			if (ModelState.IsValid)
+			{
+				try
+				{
+					await model.DeleteCourseAsync(id); 
+
+					return RedirectToAction("Index");
+				}
+				catch (Exception e)
+				{
+					_logger.LogError(e, "Server Error");
+				}
+			}
+
+			return RedirectToAction("Index");
+		}
+	}
 }

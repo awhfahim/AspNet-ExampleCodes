@@ -7,5 +7,6 @@ namespace FirstDemo1.Domain
     public interface IUnitOfWork : IDisposable
     {
         void Save();
+        Task SaveAsync();
     }
 }

@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.5.0" />
   </ItemGroup>
@@ -21,6 +22,10 @@
   <ItemGroup>
     <ProjectReference Include="..\FirstDemo4.Application\ExpenseTracker.Application.csproj" />
     <ProjectReference Include="..\FirstDemo4.Infrastructure\ExpenseTracker.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\User\Data\" />
   </ItemGroup>
 
 </Project>

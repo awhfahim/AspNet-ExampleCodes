@@ -9,7 +9,7 @@ namespace ExpenseTracker.Domain.Entities
     public class Category : IEntity<Guid>
     {
         public Guid Id { get; set; }
-        public string CategoryName { get; set; }
+        public string? CategoryName { get; set; }
         public List<Expense> Expenses { get; set; }
 
     }

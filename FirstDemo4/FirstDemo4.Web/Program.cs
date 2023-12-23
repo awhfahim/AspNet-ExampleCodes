@@ -8,6 +8,8 @@ using Serilog;
 using Serilog.Events;
 using FirstDemo4.Web;
 using ExpenseTracker.Infrastructure;
+using System.Reflection;
+using ExpenseTracker.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,15 +32,20 @@ try
 
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    var migrationAssembly = Assembly.GetExecutingAssembly().FullName;
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
-    {       
+    {
+        containerBuilder.RegisterModule(new ApplicationModule());
+        containerBuilder.RegisterModule(new InfrastructureModule());
         containerBuilder.RegisterModule(new WebModule());
     });
 
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(connectionString));
+        options.UseSqlServer(connectionString, (m) =>
+        m.MigrationsAssembly(migrationAssembly)));
+
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
     builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -67,11 +74,15 @@ try
     app.UseAuthorization();
 
     app.MapControllerRoute(
+        name: "areas",
+            pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    
+    app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+
     app.MapRazorPages();
 
-    var c = int.Parse("fhim");
     app.Run();
 
 }

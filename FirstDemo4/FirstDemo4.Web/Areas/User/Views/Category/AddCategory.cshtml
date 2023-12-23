@@ -1,0 +1,31 @@
+﻿@model AddCategoryModel;
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+
+<div class="col-md-12">
+	<!-- general form elements -->
+	<div class="card card-primary">
+		<div class="card-header">
+			<h3 class="card-title">Add New Expense</h3>
+		</div>
+		<!-- /.card-header -->
+		<!-- form start -->
+		<form asp-action="AddCategory" asp-controller="Category" asp-area="User"
+			  asp-antiforgery="true">
+			<div class="card-body">
+				<div class="form-group">
+					<label asp-for="CategoryName">CategoryName</label>
+					<input type="text" class="form-control" asp-for="CategoryName">
+				</div>
+			</div>
+			<!-- /.card-body -->
+
+			<div class="card-footer">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+	<!-- /.card -->
+</div>
