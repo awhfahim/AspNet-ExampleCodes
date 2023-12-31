@@ -1,0 +1,27 @@
+﻿@model ProductUpdateModel;
+@{
+    ViewData["Title"] = "Update";
+}
+
+<form asp-action="update" asp-controller="Product" asp-area="Admin" asp-antiforgery="true">
+    <input type="hidden" asp-for="Id" />
+    <partial name="_ResponsePartial" />
+    <div class="card-body">
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input type="text" asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price">Product Price</label>
+            <input type="number" asp-for="Price" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Weight">Product Weight</label>
+            <input type="number" asp-for="Weight" class="form-control" />
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
