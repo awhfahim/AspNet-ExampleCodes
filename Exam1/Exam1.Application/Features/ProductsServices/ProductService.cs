@@ -2,6 +2,7 @@
 using Exam1.Domain.Exceptions;
 using Exam1.Domain.Features.ProductsServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -19,13 +20,15 @@ namespace Exam1.Application.Features.ProductsServices
             _unitOfWork = unitOfWork;
         }
 
+        public async Task<IList<Category>> GetCategories() =>
+            await _unitOfWork.CategoryRepository.GetAllAsync();
+
         public async Task AddProductAsync(string name, uint price, double weight, Guid SelectedCategory)
         {
             if (await IsDuplicateAsync(name))
                 throw new DuplicateValueException($"{name} is Duplicate");
 
-            var product = new Product { Name = name, Price = price, Weight = weight };
-            product.AddCategory(SelectedCategory);
+            var product = new Product { Name = name, Price = price, Weight = weight, CategoryId = SelectedCategory };
             await _unitOfWork.ProductRepository.AddAsync(product);
             await _unitOfWork.SaveAsync();
         }
@@ -36,10 +39,27 @@ namespace Exam1.Application.Features.ProductsServices
             await _unitOfWork.SaveAsync();
         }
 
-        public async Task<(IList<Product> records, int total, int totalDisplay)> GetPagedProductsAsync
+        public async Task<(IList<ProductWithCategory> records, int total, int totalDisplay)> GetPagedProductsAsync
             (int pageIndex, int pageSize, string searchText, string orderBy)
+
         {
-            return await _unitOfWork.ProductRepository.GetTableDataAsync(searchText,orderBy,pageIndex,pageSize);
+            var catagories = await GetCategories();
+            var temp =  await _unitOfWork.ProductRepository.GetTableDataAsync(searchText,orderBy,pageIndex,pageSize);
+
+
+            var r = (from ra in temp.records
+                     select new ProductWithCategory
+                     {
+                         Id = ra.Id,
+                         Name = ra.Name,
+                         Price = ra.Price,
+                         Weight = ra.Weight,
+                         CategoryName = (from c in catagories
+                                         where c.Id == ra.CategoryId
+                                         select c.Name).First()
+                     }).ToList();
+
+            return (r, temp.total, temp.totalDisplay);
         }
 
         public async Task<Product> GetProductAsync(Guid id)

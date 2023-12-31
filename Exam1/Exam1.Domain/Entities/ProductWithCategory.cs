@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Exam1.Domain.Entities
 {
-    public class Product : IEntity<Guid>
+    public class ProductWithCategory
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public uint Price { get; set; }
         public double Weight { get; set; }
-        public Guid CategoryId { get; set; }
+        public string CategoryName { get; set; }
     }
 }

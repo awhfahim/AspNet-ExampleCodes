@@ -26,6 +26,7 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Weight</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                 <th>Name</th>
                                 <th>Price</th>
                                 <th>Weight</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -74,7 +76,7 @@
                 columnDefs: [
                     {
                         orderable: false,
-                        targets: 3,
+                        targets: 4,
                         render: function (data, type, row) {
                             return `<button type="submit" class="btn btn-info btn-sm" onclick="window.location.href='/admin/product/update/${data}'" value='${data}'>
                                                 <i class="fas fa-pencil-alt">

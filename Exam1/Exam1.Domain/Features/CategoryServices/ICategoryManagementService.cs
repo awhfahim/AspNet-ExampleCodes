@@ -10,5 +10,6 @@ namespace Exam1.Domain.Features.CategoryServices
     public interface ICategoryManagementService
     {
         Task<IEnumerable<Category>> GetAllCategory();
+        Task<Category> GetById(Guid Id);
     }
 }

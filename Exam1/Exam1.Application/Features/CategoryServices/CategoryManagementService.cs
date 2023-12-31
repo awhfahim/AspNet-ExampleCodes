@@ -20,5 +20,10 @@ namespace Exam1.Application.Features.CategoryServices
         {
             return await _unitOfWork.CategoryRepository.GetAllAsync();
         }
+
+        public async Task<Category> GetById(Guid Id)
+        {
+            return await _unitOfWork.CategoryRepository.GetByIdAsync(Id);
+        }
     }
 }
