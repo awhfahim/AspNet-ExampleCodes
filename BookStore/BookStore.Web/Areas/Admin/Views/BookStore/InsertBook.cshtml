@@ -1,0 +1,71 @@
+﻿@model InsertBookModel
+@{
+    ViewData["Title"] = "InsertBook";
+}
+
+<div class="col-md-12">
+	<!-- general form elements -->
+	<div class="card card-primary">
+		<div class="card-header">
+			<h3 class="card-title">Create New Book</h3>
+		</div>
+		<!-- /.card-header -->
+		<!-- form start -->
+		<form asp-action="insertBook" asp-controller="bookstore" asp-area="admin"
+			  asp-antiforgery="true">
+			<div class="card-body">
+				<div class="form-group">
+					<label asp-for="Book.Name">Name</label>
+					<input type="text" class="form-control" asp-for="Book.Name">
+				</div>
+				<div class="form-group">
+					<label asp-for="Book.PublishDate">Publish Date</label>
+					<input type="datetime" class="form-control" asp-for="Book.PublishDate">
+				</div>
+				<div class="form-group">
+					<label asp-for="Book.Price">Price</label>
+					<input type="number" class="form-control" asp-for="Book.Price" min="0">
+				</div>
+
+				@{
+					var fetchAuthors = await Model.GetAuthorsAsync();
+					var fetchCategories = await Model.GetCategoryAsync();
+				}
+				<div class="form-group">
+					<label asp-for="Book.AuthorId">Select Author</label>
+					<select class="form-select" aria-label="Default select example"
+							asp-for="Book.AuthorId"
+							asp-items="@fetchAuthors.Select(x => new SelectListItem{Value = x.Id.ToString(), Text = x.Name}).ToArray()">
+						<option value="">Select an option</option>
+					</select>
+				</div>
+				
+				<div class="form-group">
+					<label asp-for="Book.CategoryName">Select Category</label>
+					<select class="form-select" aria-label="Default select example"
+							asp-for="Book.CategoryName"
+							asp-items="@fetchCategories.Select(x => new SelectListItem{Value = x.a.ToString(), Text = x.name}).ToArray()">
+						<option value="">Select an option</option>
+					</select>
+				</div>
+
+				<label asp-for="Book.CategoryName">Select Categories</label>
+				<select class="form-select" aria-label="Default select example" asp-for="Book.CategoryName" multiple">
+					@foreach (var category in fetchCategories)
+					{
+						<option value="@category.a">@category.name</option>
+					}
+				</select>
+
+
+			</div>
+			<!-- /.card-body -->
+
+			<div class="card-footer">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+	<!-- /.card -->
+</div>
+
