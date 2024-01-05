@@ -1,16 +1,13 @@
+global using Practice1.Infrastructure;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
-using Practice1.Web.Data;
 using Serilog;
 using Serilog.Events;
 using System.Reflection;
 using Practice1.Web;
-using Practice1.Infrastructure;
 using Practice1.Application;
-using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
