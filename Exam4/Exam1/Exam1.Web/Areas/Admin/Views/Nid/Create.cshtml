@@ -10,7 +10,9 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label asp-for="Name">Name</label>
-                        <input type="text" class="form-control" asp-for="Name" />
+                        <input type="text" class="form-control" asp-for="Name" onfocus="this.style.backgroundColor = 'yellow'"
+                        onblur="this.style.backgroundColor = 'white'"
+                        onclick="alert('Hi my name is fahim')"/>
                     </div>
                     
                     <div class="form-group">

@@ -53,5 +53,10 @@ namespace Exam1.Web.Areas.Admin.Models
                         })
             };
         }
+
+        internal async Task DeleteNIDAsync(Guid id)
+        {
+            await _nidService.DeleteNIDAsync(id);
+        }
     }
 }

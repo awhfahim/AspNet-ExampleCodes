@@ -27,11 +27,32 @@ namespace Exam1.Application.Features.NIDservices
             await _applicationUnitOfWork.SaveAsync();
         }
 
+        public async Task DeleteNIDAsync(Guid id)
+        {
+            await _applicationUnitOfWork.NIDRepository.RemoveAsync(id);
+            await _applicationUnitOfWork.SaveAsync();
+        }
+
+        public async Task<NIDcreateUpdateDTO> GetNIDById(Guid id)
+        {
+            NIDcreateUpdateDTO dTO = new();
+            var nid = await _applicationUnitOfWork.NIDRepository.GetByIdAsync(id);
+            _mapper.Map(nid, dTO);
+            return dTO;
+        }
+
         public async Task<(IList<NID> nIDs, int total, int totalDisplay)> GetTableDataAsync
             (int pageIndex, int pageSize, string name, uint ageFrom, uint ageTo, string sortBy)
         {
             var r = await _applicationUnitOfWork.NIDRepository.GetTableDataAsync(pageIndex, pageSize, name, ageFrom, ageTo, sortBy);
             return r;
+        }
+
+        public async Task UpdateNidAsync(NIDcreateUpdateDTO updateDTO, Guid Id)
+        {
+            NID nid = await _applicationUnitOfWork.NIDRepository.GetByIdAsync(Id);
+            _mapper.Map(updateDTO, nid);
+            await _applicationUnitOfWork.SaveAsync();
         }
 
     }

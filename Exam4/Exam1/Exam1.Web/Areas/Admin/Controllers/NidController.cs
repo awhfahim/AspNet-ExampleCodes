@@ -34,6 +34,13 @@ namespace Exam1.Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 await model.CreateNidAsync();
+
+                TempData.Put<ResponseModel>("ResponseMessage", new ResponseModel
+                {
+                    Message = "Succefully Added",
+                    Type = ResponseTypes.Success
+                });
+
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -46,6 +53,43 @@ namespace Exam1.Web.Areas.Admin.Controllers
 
             var data = await model.GetTableDataAsync(dataTable);
             return Json(data);
+        }
+        
+        public async Task<IActionResult> Update(Guid Id)
+        {
+            var model = scope.Resolve<NIDUpdateModel>();
+            await model.GetNIDByID(Id);
+            return View(model);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(NIDUpdateModel model, [FromRoute]Guid Id)
+        {
+            model.Resolve(scope);
+
+            if(ModelState.IsValid)
+            {
+                await model.UpdateNIDAsync(Id);
+                TempData.Put("ResponseMessage", new ResponseModel
+                {
+                    Message = "Succesfully Update",
+                    Type = ResponseTypes.Success
+                });
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        public async Task<IActionResult> Delete(Guid Id)
+        {
+            var model = scope.Resolve<NIDListModel>();
+            await model.DeleteNIDAsync(Id);
+            TempData.Put("ResponseMessage", new ResponseModel
+            {
+                Message = "Succesfully Deleted NID",
+                Type = ResponseTypes.Success
+            });
+            return RedirectToAction("Index");
         }
     }
 }
