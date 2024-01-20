@@ -37,6 +37,8 @@ namespace FirstDemo1.Application.Features.Training
         {
             await _unitOfWork.CourseRepository.RemoveAsync(id);
             await _unitOfWork.SaveAsync();
+
+
         }
     }
 }
