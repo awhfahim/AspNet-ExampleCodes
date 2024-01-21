@@ -1,16 +1,18 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FirstDemo.Application;
-using FirstDemo.Domain.Entities;
-using FirstDemo.Infrastructure.Repositories;
+using FirstDemo.Infrastructure;
 using FirstDemo.Web;
 using FirstDemo.Web.Data;
 using FirstDemo.Web.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 using Serilog;
 using Serilog.Events;
+using System.Reflection;
+using FirstDemo.Infrastructure.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using FirstDemo.Infrastructure.Email;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,34 +22,34 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .Enrich.FromLogContext()
     .ReadFrom.Configuration(builder.Configuration));
 
-
-DbContext dbContext = null;
-var ress = new CourseRepository(dbContext);
-await ress.GetAsync(x => x.Fees > 8000);
-
-await ress.GetDynamicAsync();
-await ress.GetDynamic();
-
 try
 {
-    builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+	var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    var migrationAssembly = Assembly.GetExecutingAssembly().FullName;
+
+	builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     {
-        containerBuilder.RegisterModule(new WebModule());
+		containerBuilder.RegisterModule(new ApplicationModule());
+		containerBuilder.RegisterModule(new InfrastructureModule(connectionString, 
+            migrationAssembly));
+		containerBuilder.RegisterModule(new WebModule());
     });
 
 
     // Add services to the container.
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(connectionString));
+        options.UseSqlServer(connectionString, 
+        (m) => m.MigrationsAssembly(migrationAssembly)));
+
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-    builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+    builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+    builder.Services.AddIdentity();
     builder.Services.AddControllersWithViews();
+    builder.Services.AddCookieAuthentication();
+    
 
-    builder.Services.AddSingleton<IEmailSender, HtmlEmailSender>();
+    builder.Services.Configure<Smtp>(builder.Configuration.GetSection("Smtp"));
 
     var app = builder.Build();
 

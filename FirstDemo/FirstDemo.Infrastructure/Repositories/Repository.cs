@@ -16,14 +16,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FirstDemo.Application
+namespace FirstDemo.Infrastructure.Repositories
 {
     public abstract class Repository<TEntity, TKey>
         : IRepository<TEntity, TKey> where TKey : IComparable
         where TEntity : class, IEntity<TKey>
     {
-        protected DbContext _dbContext;
-        protected DbSet<TEntity> _dbSet;
+        private DbContext _dbContext;
+        private DbSet<TEntity> _dbSet;
 
         public Repository(DbContext context)
         {
@@ -39,10 +39,7 @@ namespace FirstDemo.Application
         public virtual async Task RemoveAsync(TKey id)
         {
             var entityToDelete = _dbSet.Find(id);
-            if(entityToDelete != null)
-            {
-                await RemoveAsync(entityToDelete);
-            }          
+            await RemoveAsync(entityToDelete);
         }
 
         public virtual async Task RemoveAsync(TEntity entityToDelete)
@@ -82,14 +79,26 @@ namespace FirstDemo.Application
         public virtual async Task<int> GetCountAsync(Expression<Func<TEntity, bool>> filter = null)
         {
             IQueryable<TEntity> query = _dbSet;
-            var count = 0;
+            int count;
 
             if (filter != null)
-            {
-                query = query.Where(filter);
-            }
+                count = await query.CountAsync(filter);
+            else
+                count = await query.CountAsync();
 
-            count = await query.CountAsync();
+            return count;
+        }
+
+        public virtual int GetCount(Expression<Func<TEntity, bool>> filter = null)
+        {
+            IQueryable<TEntity> query = _dbSet;
+            int count;
+
+            if (filter != null)
+                count = query.Count(filter);
+            else
+                count = query.Count();
+
             return count;
         }
 
@@ -302,19 +311,6 @@ namespace FirstDemo.Application
         {
             _dbSet.Attach(entityToUpdate);
             _dbContext.Entry(entityToUpdate).State = EntityState.Modified;
-        }
-
-        public virtual int GetCount(Expression<Func<TEntity, bool>> filter = null)
-        {
-            IQueryable<TEntity> query = _dbSet;
-            var count = 0;
-
-            if (filter != null)
-                count = query.Where(filter).Count();
-            else
-                count = query.Count();
-
-            return count;
         }
 
         public virtual IList<TEntity> Get(Expression<Func<TEntity, bool>> filter,
