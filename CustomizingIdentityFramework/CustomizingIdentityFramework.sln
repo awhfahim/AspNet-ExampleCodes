@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomizingIdentityFramework.Web", "CustomizingIdentityFramework.Web\CustomizingIdentityFramework.Web.csproj", "{5CDAC831-BFBB-4E2B-B483-CCBA87F2C8FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomizingIdentityFramework.Infrastructure", "CustomizingIdentityFramework.Infrastructure\CustomizingIdentityFramework.Infrastructure.csproj", "{4FE1C39D-C4E1-4082-89D3-7E0E523FF192}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CDAC831-BFBB-4E2B-B483-CCBA87F2C8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDAC831-BFBB-4E2B-B483-CCBA87F2C8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDAC831-BFBB-4E2B-B483-CCBA87F2C8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDAC831-BFBB-4E2B-B483-CCBA87F2C8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE1C39D-C4E1-4082-89D3-7E0E523FF192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE1C39D-C4E1-4082-89D3-7E0E523FF192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE1C39D-C4E1-4082-89D3-7E0E523FF192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE1C39D-C4E1-4082-89D3-7E0E523FF192}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92F6905F-EBF0-40FE-9AAF-CCC6E3CAC482}
+	EndGlobalSection
+EndGlobal
