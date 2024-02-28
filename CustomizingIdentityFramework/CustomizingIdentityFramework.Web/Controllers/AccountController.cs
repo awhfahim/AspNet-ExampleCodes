@@ -56,7 +56,7 @@ namespace CustomizingIdentityFramework.Web.Controllers
             return View();
         }
 
-        [Authorize(Policy = "SuperMaster")]
+        [Authorize(Policy = "CourseViewPolicy")]
         public IActionResult CreateUser()
         {
             return View(User);

@@ -25,4 +25,8 @@
     <ProjectReference Include="..\CustomizingIdentityFramework.Infrastructure\CustomizingIdentityFramework.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Requirements\" />
+  </ItemGroup>
+
 </Project>

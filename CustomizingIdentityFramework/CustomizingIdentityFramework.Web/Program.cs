@@ -60,6 +60,22 @@ try
             policy.RequireRole("Supervisor", "Admin");
 
         });
+
+        options.AddPolicy("CourseViewPolicy", policy =>
+        {
+            policy.RequireAuthenticatedUser();
+            policy.RequireClaim("ViewCourse");
+        });
+
+        options.AddPolicy("CourseUpdateRequirementPolicy", policy =>
+        {
+            policy.RequireAuthenticatedUser();
+
+            /// Jodi  requirements configuration simple hoy tahole seta ekhane RequireAssertion diye kora jay
+            policy.RequireAssertion(context => context.User.HasClaim(x =>
+                x.Type == "UpdateCourse" && x.Value == "True"
+            ));
+        });
     });
 
     var app = builder.Build();

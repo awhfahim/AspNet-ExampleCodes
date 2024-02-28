@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using CustomizingIdentityFramework.Infrastructure.Membership;
 using static System.Formats.Asn1.AsnWriter;
+using System.Security.Claims;
 
 namespace CustomizingIdentityFramework.Web.Models
 {
@@ -72,7 +73,11 @@ namespace CustomizingIdentityFramework.Web.Models
 
             if (result.Succeeded)
             {
-                await _userManager.AddToRolesAsync(user, new List<string> { "User", "Admin", "Supervisor" });
+                //await _userManager.AddToRolesAsync(user, new List<string> { "User", "Admin", "Supervisor" });
+
+                await _userManager.AddClaimAsync(user, new Claim("ViewCourse", "true"));
+                await _userManager.AddClaimAsync(user, new Claim("UpdateCourse", "true"));
+
                 var userId = await _userManager.GetUserIdAsync(user);
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

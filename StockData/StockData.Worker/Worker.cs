@@ -24,6 +24,15 @@ public class Worker : BackgroundService
             var doc = new HtmlDocument();
             doc.LoadHtml(html);
 
+            var marketStatus = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/div[1]/div[1]/div[1]/header[1]/div[1]/span[3]/span[1]");
+            var marketStatusText = marketStatus.InnerText;
+
+            if(marketStatusText is not "Open")
+            {
+                await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+                continue;
+            }
+
             var table = doc.DocumentNode.SelectSingleNode("//table[@class='table table-bordered background-white shares-table fixedHeader']");
             var rows = table.SelectNodes(".//tr");
 
@@ -58,7 +67,6 @@ public class Worker : BackgroundService
                 await _scrapDataManagementService.InsertCompanyAsync(companyDto);
                 await _scrapDataManagementService.InsertStockPriceAsync(stockPriceDto);
 
-                //_logger.LogInformation($"{Id} {symbol} {ltp} {high} {low} {closep} {ycp} {change} {trade} {value} {volume}");
             }
 
             await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
