@@ -15,11 +15,13 @@ namespace WebApplication2.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index page says hello");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            _logger.LogInformation("Privacy page says hello");
             return View();
         }
 

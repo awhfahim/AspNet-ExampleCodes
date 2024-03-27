@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="profile-container card">
+    <div class="card-body">
+        <h5 class="card-title">Profile Picture</h5>
+        <img src="" alt="Profile Picture" class="img-fluid rounded-circle profile-picture">
+        <form id="profile-picture-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="profile-picture-upload" class="form-label">Upload Profile Picture</label>
+                <input class="form-control" type="file" id="profile-picture-upload" name="profilePicture">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function() {
+            $('#profile-picture-form').submit(function(e) {
+                console.log('submitting form')
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: '/User/UploadProfilePicture',
+                    type: 'POST',
+                    data: formData,
+                    success: function(data) {
+                        $('#profileImageUrl').val(data);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            });
+        });
+    </script>
+}

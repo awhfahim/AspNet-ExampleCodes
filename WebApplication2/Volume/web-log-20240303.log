@@ -1,0 +1,31 @@
+2024-03-03 06:52:19.529 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2024-03-03 06:52:19.611 +00:00 [WRN] No XML encryptor configured. Key {2db4de22-70ef-401e-8004-8cefc4b8b144} may be persisted to storage in unencrypted form.
+2024-03-03 06:53:15.792 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-03 06:53:15.817 +00:00 [INF] Index page says hello
+2024-03-03 06:53:18.619 +00:00 [INF] Index page says hello
+2024-03-03 06:53:18.942 +00:00 [INF] Privacy page says hello
+2024-03-03 06:53:19.324 +00:00 [INF] Index page says hello
+2024-03-03 06:54:03.772 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2024-03-03 06:54:11.203 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-03 06:54:11.224 +00:00 [INF] Index page says hello
+2024-03-03 06:54:13.514 +00:00 [INF] Index page says hello
+2024-03-03 06:54:13.734 +00:00 [INF] Index page says hello
+2024-03-03 06:54:13.946 +00:00 [INF] Index page says hello
+2024-03-03 06:54:14.124 +00:00 [INF] Index page says hello
+2024-03-03 06:54:14.317 +00:00 [INF] Index page says hello
+2024-03-03 06:54:14.499 +00:00 [INF] Index page says hello
+2024-03-03 06:54:14.922 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:15.090 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:15.283 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:15.458 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:15.618 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:15.804 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:16.812 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:17.238 +00:00 [INF] Index page says hello
+2024-03-03 06:54:17.572 +00:00 [INF] Privacy page says hello
+2024-03-03 06:54:18.079 +00:00 [INF] Index page says hello
+2024-03-03 06:54:18.390 +00:00 [INF] Privacy page says hello
+2024-03-03 09:00:49.461 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2024-03-03 09:01:42.468 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-03 09:01:42.494 +00:00 [INF] Index page says hello
+2024-03-03 09:20:36.632 +00:00 [INF] Index page says hello

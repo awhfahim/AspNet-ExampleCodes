@@ -1,0 +1,6 @@
+@JWTtokenExample.Api_HostAddress = http://localhost:5058
+
+GET {{JWTtokenExample.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
